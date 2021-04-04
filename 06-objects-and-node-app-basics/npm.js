@@ -13,4 +13,7 @@
 
     3- Se crea un package.json con los datos ingresados, pero que se puede modificar.
 
+    4- Se deben incluir la carpeta node-modules en el gitignore con el fin de que no se suban al repositorio. Si se desea bajar
+      la app en otro equipo, y se trae del repositorio, para traer las dependencias se usa el comando npm install, y de esta manera se
+      instalan todas las dependencias que se encuentran listadas en package.json y package-lock.json
 */

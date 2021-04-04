@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ErikaEspejo/make-it-real-sessions/issues"
   },
-  "homepage": "https://github.com/ErikaEspejo/make-it-real-sessions#readme"
+  "homepage": "https://github.com/ErikaEspejo/make-it-real-sessions#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1"
+  }
 }

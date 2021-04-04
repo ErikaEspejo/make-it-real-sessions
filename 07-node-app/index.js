@@ -1,0 +1,1 @@
+//encriptar una cadena con la libreria bcrypt

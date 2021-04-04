@@ -10,7 +10,10 @@
 
 */
 
-
+/*
+  Al exportar una funcion, se exporta el modulo como una funcion
+  Al exportar varios elementos, se exporta un objeto
+*/
 
 const bcrypt = require('bcrypt'); //busca el modulo bcrypt y lo aloja en la variable bcrypt
 
@@ -23,5 +26,7 @@ const encriptar = (cadena) => { //Dentro de la funcion queda todo lo que solo se
   return hash;
 }
 
+const comparar = (cadena, hash) => bcrypt.compareSync(cadena, hash);
 
-module.exports = encriptar; //exporto la funcion de manera que cualquier archivo pueda consumirla
+module.exports = { encriptar, comparar} //exporto dos funciones como objeto, en index.js se requiere destructuracion
+//module.exports = encriptar; //exporto la funcion de manera que cualquier archivo pueda consumirla

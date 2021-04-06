@@ -1,0 +1,23 @@
+[
+  {
+    "id" : 1,
+    "username" : "myusername1",
+    "email" : "myemail1@email.com",
+    "password" : "1234567890",
+    "createdDate" : "01/01/2020"
+  },
+  {
+    "id" : 2,
+    "username" : "myusername2",
+    "email" : "myemail2@email.com",
+    "password" : "0987654321",
+    "createdDate" : "01/02/2020"
+  },
+  {
+    "id" : 3,
+    "username" : "myusername3",
+    "email" : "myemail3@email.com",
+    "password" : "1234509876",
+    "createdDate" : "01/03/2020"
+  }
+]

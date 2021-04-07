@@ -1,0 +1,26 @@
+{
+  "name": "24-archivos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErikaEspejo/make-it-real-sessions.git"
+  },
+  "keywords": [
+    "js",
+    "csv"
+  ],
+  "author": "Erika Espejo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErikaEspejo/make-it-real-sessions/issues"
+  },
+  "homepage": "https://github.com/ErikaEspejo/make-it-real-sessions#readme",
+  "dependencies": {
+    "faker": "^5.5.2"
+  }
+}

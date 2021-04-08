@@ -6,11 +6,20 @@ const users = [
     password : '12313123'
   },
   {
-    name: 'Jesus',
-    email : 'jesusestrada@email.com',
-    username : 'jestrade',
+    name: 'Erika',
+    email : 'erikaespejo@email.com',
+    username : 'erika',
+    password : '12313123'
+  },
+  {
+    name: 'Maria',
+    email : 'maria@email.com',
+    username : 'maria',
     password : '12313123'
   }
 ]
+
+const user = users.filter(el => el.username === "erika")
+console.log(user[0].name)
 
 module.exports = { users };

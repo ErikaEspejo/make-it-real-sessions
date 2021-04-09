@@ -50,7 +50,7 @@ app.put('/users/:username', log, (req, res) => {
   const username = req.params.username;
   const found = users.filter((u) => u.username === username);
 
-  if (found && found.length > 0) { //Si se incluyen todos los datos pero se encuentra otro usuario con el mismo username, manda un mensaje de que ya existe, si no lo crea.
+  if (found && found.length > 0) { //Si se incluyen todos los datos pero se encuentra otro usuario con el mismo username, actualiza con los datos ingresados.
 
     found[0].name = req.body.name ? req.body.name : found[0].name;
     found[0].email = req.body.email ? req.body.email : found[0].email;
@@ -58,7 +58,7 @@ app.put('/users/:username', log, (req, res) => {
 
     res.json(users);
   } else {
-    res.json({ message: `El usuario ${username} no existe.` }); //muestra el json del listado de usuarios.
+    res.json({ message: `El usuario ${username} no existe.` }); //muestra que el usuario no existe
   };
 });
 

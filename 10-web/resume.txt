@@ -25,9 +25,10 @@ Se crean las carpetas API, CONFIG, HTTP.
 
           1.2.3- MODEL: Se establecen los datos de la app, db y demas
 
-      1.3- INDEX.JS: se llama al router.
+      1.3- INDEX.JS: se llama al router. se puede asignar los logs que se ejecutaran en la api.
 
-  2- config: en esta se establece la configuracion del servidor, se exporta como modulo, el cual se consume en la carpeta http.}
+  2- config: en esta se establece la configuracion del servidor, se exporta como modulo, el cual se consume en la carpeta http.
+    Tambien se incluye la parte de logs, el cual llama a la varaible de entorno (en el archivo .env).
 
   3- http: en esta se establece la inicializacion del servidor y se hace uso de config. Se exporta como modulo para ser usado en el index de la app.
 

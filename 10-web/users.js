@@ -19,7 +19,4 @@ const users = [
   }
 ]
 
-const user = users.filter(el => el.username === "erika")
-console.log(user[0].name)
-
 module.exports = { users };

@@ -29,6 +29,7 @@ app.get('/users', log, (req, res) => {
   res.json(users); //muestra un objeto json
 });
 
+
 app.get('/users/:username', (req, res) => { //todo lo que venga despues del path 'users' se considera username, lo cual se convierte en parametros del request
   //la informacion para get viene en los parametros de la url
   const username = req.params.username; //entra a los parametros del request (username)
@@ -43,6 +44,22 @@ app.get('/users/:username', (req, res) => { //todo lo que venga despues del path
     res.send(`Username: ${username}, Nombre: ${name}, Email: ${email}`);
   }; //muestra la información del username al que se quiere acceder
 
+});
+
+app.put('/users/:username', log, (req, res) => {
+  const username = req.params.username;
+  const found = users.filter((u) => u.username === username);
+
+  if (found && found.length > 0) { //Si se incluyen todos los datos pero se encuentra otro usuario con el mismo username, manda un mensaje de que ya existe, si no lo crea.
+
+    found[0].name = req.body.name ? req.body.name : found[0].name;
+    found[0].email = req.body.email ? req.body.email : found[0].email;
+    found[0].password = req.body.password ? req.body.password : found[0].password;
+
+    res.json(users);
+  } else {
+    res.json({ message: `El usuario ${username} no existe.` }); //muestra el json del listado de usuarios.
+  };
 });
 
 app.post('/users', (req, res) => { //para guardar información, enviar información al servidor. Es la parte CREATE del CRUD

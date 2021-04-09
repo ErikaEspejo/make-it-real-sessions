@@ -3,3 +3,39 @@ Se hace uso de Express aunque no se requiere en node.js, se hace para facilitar 
 Se hace para convertir una app stand alone en una app web.
 
 Al ser una app web, el pc crea una interfaz para poder generar las peticiones mediante el PUERTO, express expone el puerto.
+
+
+Para el refactoring hay dos opciones:
+1- Crear carpetas por componente (ej. usuario) y dentro de estas incluir los archivos controller, model, router.
+2- Crear carpeta de model, router, controller y dentro de cada una incluir el archivo ´para cada componente.
+
+Se hace uso de la opcion 1.
+
+Se crean las carpetas API, CONFIG, HTTP.
+  1- api: dentro de esta se ubican los archivos que corren como tal la app.
+    se incluyen los middlewares, y las carpetas de los componentes con sus respectivos archivos de controladores, routers y modelos.
+
+      1.1- MIDDLEWARES:
+
+      1.2- COMPONENTE (EJ USERS):
+
+          1.2.1- CONTROLLER: Se definen los metodos que se deben usar.
+
+          1.2.2- ROUTER: se ponen las rutas que se ejecutaran y de indican los metodos a usar. Los metodos se definen en los controladores.
+
+          1.2.3- MODEL: Se establecen los datos de la app, db y demas
+
+      1.3- INDEX.JS: se llama al router.
+
+  2- config: en esta se establece la configuracion del servidor, se exporta como modulo, el cual se consume en la carpeta http.}
+
+  3- http: en esta se establece la inicializacion del servidor y se hace uso de config. Se exporta como modulo para ser usado en el index de la app.
+
+  4- el index es el que se corre mediante node index.js o la opcion que se establezca en package.json. (npm run dev, npm start...)
+
+Se establece un archivo de variables de entorno .env, el cual NO se debe enviar al repositorio. y en esta se estabkecen las variables de entorno
+las cuales permiten establecer las variables que debera usar el servidor dependiendo su entorno, como por ejemplo el puerto al que debera conectarse
+el servidor de acuerdo a si se encuentra en un entorno de desarrollo, producción o testing, el cual varia.
+Tambien contiene las llaves de cifrado, por lo cual por seguridad no se envia al repo.
+
+

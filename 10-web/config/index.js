@@ -7,7 +7,8 @@ const config = {
   },
   logs: {
     access: process.env.LOG_ACCESS,
-  }
+  },
+  jwtKey: process.env.JWTKEY,
 };
 
 module.exports = { config };

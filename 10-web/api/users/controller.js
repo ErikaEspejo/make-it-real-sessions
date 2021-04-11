@@ -1,3 +1,6 @@
+const jwt = require('jsonwebtoken');
+
+const { config } = require('./../../config');
 const { users } = require('./model');
 
 const list = (req, res) => {
@@ -53,4 +56,22 @@ const update = (req, res) => {
   };
 };
 
-module.exports = { list, create, getUser, update };
+const login = (req, res) => {
+  const { username, password } = req.body;
+
+  const user = {
+    username,
+    password,
+  }
+
+  const found = users.filter(u => u.username === user.username && u.password === user.password);
+
+  if (found && found.length > 0) {
+    const token = jwt.sign({username: user.username}, config.jwtKey);
+    res.json({ token });
+  } else {
+    res.json({ message : 'user not found' })
+  };
+};
+
+module.exports = { list, create, getUser, update, login };

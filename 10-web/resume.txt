@@ -39,4 +39,4 @@ las cuales permiten establecer las variables que debera usar el servidor dependi
 el servidor de acuerdo a si se encuentra en un entorno de desarrollo, producción o testing, el cual varia.
 Tambien contiene las llaves de cifrado, por lo cual por seguridad no se envia al repo.
 
-
+Se implementa una libreria para autenticacion, jsonwebtoken, que permite la generacion del token cuando un usuario es encontrado y se quiere ingresar.

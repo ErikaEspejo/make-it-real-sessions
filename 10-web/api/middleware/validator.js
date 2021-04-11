@@ -32,4 +32,23 @@ const validateUser = (req, res, next) => {
   }
 };
 
-module.exports = { validateUser }
+const validateLogin = (req, res, next) => {
+  const { username, password } = req.body;
+  const errors = [];
+
+  if(username && password) {
+    if (username.length < 6) {
+      errors.push('invalid username');
+    };
+  } else {
+    errors.push('empty data');
+  }
+
+  if (errors.length === 0) {
+    next();
+  } else {
+    res.json( {message : errors} )
+  };
+};
+
+module.exports = { validateUser, validateLogin }

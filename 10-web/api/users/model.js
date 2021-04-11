@@ -8,13 +8,13 @@ const users = [
   {
     name: 'Erika',
     email: 'erikaespejo@email.com',
-    username: 'erika',
+    username: 'erikaesp',
     password: '12313123'
   },
   {
     name: 'Maria',
     email: 'maria@email.com',
-    username: 'maria',
+    username: 'mariamar',
     password: '12313123'
   }
 ]

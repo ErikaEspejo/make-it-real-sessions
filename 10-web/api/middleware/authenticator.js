@@ -3,11 +3,14 @@ const { config } = require('./../../config');
 
 const authenticator = (req, res, next) => {
   const token = req.headers['x-access-token'];
-  const decoded = jwt.verify( token, config.jwtKey);
 
-  if(decoded) {
+  try {
+    const decoded = jwt.verify( token, config.jwtKey);
+    const username = decoded?.username;
+    req.body.username = username;
+
     next();
-  } else {
+  } catch {
     res.json({ message: 'user unauthorized'})
   }
 };

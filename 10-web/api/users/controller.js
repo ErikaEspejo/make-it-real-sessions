@@ -6,7 +6,7 @@ const list = (req, res) => {
 
 const create = (req, res) => {
   const { name, email, username, password } = req.body; //Destructuración de las llaves - valor del request
-  if (name && email && username && password) { //Si se incluyen todos los datos intenta guardarlo, si no genera error.
+
     const user = {
       name,
       email,
@@ -21,10 +21,6 @@ const create = (req, res) => {
       users.push(user);
       res.json(users); //muestra el json del listado de usuarios.
     };
-
-  } else {
-    res.json({ message: 'Ocurrió un error. Hay datos nulos.' })
-  };
 };
 
 const getUser = (req, res) => {

@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan'); //log predeterminado
 const fs = require('fs'); //se usa con morgan para crear logs en archivos
 const path = require('path'); //se usa con morgan para crear logs en archivos
+const { localization } = require('./middleware/localization');
 
 const users = require('./users/router');
 const tweets = require('./tweets/router');
@@ -14,11 +15,11 @@ const accessLogDir = config.logs.access; //se crea la direccion donde se guarda 
 
 const logStream = fs.createWriteStream(path.join(__dirname, accessLogDir), { flags: 'a' }); //crear logs en archivos
 router.use(morgan('combined', { stream: logStream }));
+router.use(localization);
 
 router.use('/users', users);
 router.use('/tweets', tweets);
 router.use('/weather', weather);
-
 /*
 router.get('/', (req, res) => {
   res.send('hello from api')

@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { config } = require('./../../config');
+const { locale } = require('./../../locale');
 
 const authenticator = (req, res, next) => {
   const token = req.headers['x-access-token'];
@@ -11,7 +12,7 @@ const authenticator = (req, res, next) => {
 
     next();
   } catch {
-    res.status(401).json({ message: 'user unauthorized'})
+    res.status(401).json({ message: locale.translate('errors.notAuthenticated')});
   }
 };
 

@@ -40,3 +40,7 @@ el servidor de acuerdo a si se encuentra en un entorno de desarrollo, producció
 Tambien contiene las llaves de cifrado, por lo cual por seguridad no se envia al repo.
 
 Se implementa una libreria para autenticacion, jsonwebtoken, que permite la generacion del token cuando un usuario es encontrado y se quiere ingresar.
+
+Se puede implementaar una libreria para los idiomas de una api, en este caso se hace uso de localizationjs. Se debe usar cuando los sistemas funcionan en
+diferentes paises. Se definen diccionarios, y en ellos se agregan los mensajes que se quieren tener en cada idioma. Dentro del emcabezado de una peticion se
+define información de idioma. Se agrega como otro modulo aparte de la api.

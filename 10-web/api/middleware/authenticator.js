@@ -11,7 +11,7 @@ const authenticator = (req, res, next) => {
 
     next();
   } catch {
-    res.json({ message: 'user unauthorized'})
+    res.status(401).json({ message: 'user unauthorized'})
   }
 };
 

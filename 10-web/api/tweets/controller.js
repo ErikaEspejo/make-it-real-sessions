@@ -1,7 +1,7 @@
 const { tweets } = require('./model');
 
 const list = (req, res) => {
-  res.json(tweets);
+  res.status(200).json(tweets);
 };
 
 const create = (req, res) => {
@@ -15,7 +15,7 @@ const create = (req, res) => {
   };
 
   tweets.push(tweet);
-  res.json(tweets); //muestra el json del listado de usuarios.
+  res.status(201).json(tweets); //muestra el json del listado de usuarios.
 };
 
 module.exports = { list, create };

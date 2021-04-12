@@ -9,6 +9,7 @@ const config = {
     access: process.env.LOG_ACCESS,
   },
   jwtKey: process.env.JWTKEY,
+  apiWeatherKey: process.env.APIWEATHERKEY,
 };
 
 module.exports = { config };

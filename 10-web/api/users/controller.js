@@ -4,7 +4,7 @@ const { config } = require('./../../config');
 const { users } = require('./model');
 
 const list = (req, res) => {
-  res.json(users);
+  res.status(200).json(users);
 };
 
 const create = (req, res) => {
@@ -19,10 +19,10 @@ const create = (req, res) => {
 
     const found = users.filter((u) => u.username === user.username);
     if (found && found.length > 0) { //Si se incluyen todos los datos pero se encuentra otro usuario con el mismo username, manda un mensaje de que ya existe, si no lo crea.
-      res.json({ message: 'Ya existe el usuario.' })
+      res.status(500).json({ message: 'Ya existe el usuario.' })
     } else {
       users.push(user);
-      res.json(users); //muestra el json del listado de usuarios.
+      res.status(201).json(users); //muestra el json del listado de usuarios.
     };
 };
 
@@ -50,9 +50,9 @@ const update = (req, res) => {
     found[0].email = req.body.email ? req.body.email : found[0].email;
     found[0].password = req.body.password ? req.body.password : found[0].password;
 
-    res.json(users);
+    res.status(204).json(users);
   } else {
-    res.json({ message: `El usuario ${username} no existe.` }); //muestra que el usuario no existe
+    res.status(500).json({ message: `El usuario ${username} no existe.` }); //muestra que el usuario no existe
   };
 };
 
@@ -68,9 +68,9 @@ const login = (req, res) => {
 
   if (found && found.length > 0) {
     const token = jwt.sign({username: user.username}, config.jwtKey);
-    res.json({ token });
+    res.status(200).json({ token });
   } else {
-    res.json({ message : 'user not found' })
+    res.status(500).json({ message : 'user not found' })
   };
 };
 

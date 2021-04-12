@@ -5,6 +5,8 @@ const path = require('path'); //se usa con morgan para crear logs en archivos
 
 const users = require('./users/router');
 const tweets = require('./tweets/router');
+const weather = require('./weather/router');
+
 const { config } = require('../config'); //como se requiere el uso del archivo de config se llama
 
 const router = express.Router();
@@ -15,6 +17,7 @@ router.use(morgan('combined', { stream: logStream }));
 
 router.use('/users', users);
 router.use('/tweets', tweets);
+router.use('/weather', weather);
 
 /*
 router.get('/', (req, res) => {

@@ -13,7 +13,7 @@ const validateTweet = (req, res, next) => {
   if(errors.length === 0) {
     next(); //permite continuar con el siguiente middleware
   } else {
-    res.json({ message : errors }); //como no aparece next() muere la petición
+    res.status(500).json({ message : errors }); //como no aparece next() muere la petición
   }
 
   ;

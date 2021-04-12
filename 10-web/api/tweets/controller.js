@@ -5,12 +5,12 @@ const list = (req, res) => {
 };
 
 const create = (req, res) => {
-  const { content, username } = req.body; //Destructuración de las llaves - valor del request
+  const { content, authUsername } = req.body; //Destructuración de las llaves - valor del request
   const date = new Date().toDateString();
 
   const tweet = {
     content,
-    username,
+    username: authUsername,
     date,
   };
 

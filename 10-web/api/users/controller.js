@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const { config } = require('./../../config');
-const { users } = require('./model');
+let { users } = require('./model');
 
 const list = (req, res) => {
   res.status(200).json(users);
@@ -74,4 +74,13 @@ const login = (req, res) => {
   };
 };
 
-module.exports = { list, create, getUser, update, login };
+const remove = (req, res) => {
+  const { username } = req.body;
+  users = users.filter(u => u.username !== username);
+  res.status(200).json(users);
+
+
+
+};
+
+module.exports = { list, create, getUser, update, login, remove};

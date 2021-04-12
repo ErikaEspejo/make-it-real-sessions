@@ -7,7 +7,7 @@ const authenticator = (req, res, next) => {
   try {
     const decoded = jwt.verify( token, config.jwtKey);
     const username = decoded?.username;
-    req.body.username = username;
+    req.body.authUsername = username;
 
     next();
   } catch {

@@ -1,0 +1,55 @@
+database - models - logs: hacen parte de la capa de persistencia. La capa de persistencia es donde aunque se apague el servidor, la información
+sigue existiendo.
+
+El modelo se conecta con la base de datos, este se compone de una capa llamada ODM (en NoSQL) o Object Document Mapper u ORM (Object Relation Mapper en SQL),
+y es el que permite la gestion de informacion con la DB, y es el encargado de crear, consultar registros... Esto representa un objeto en la aplicacion y no es
+necesario escribir una consulta SQL para manejar la informacion, sino que se define un ODM / ORM por ejemplo user.insert que permita insertar los datos sin tener
+que escribir INSERT INTO ... es decir, es una abstraccion que permite que no sea necesario conocer el lenguaje de la BD (SQL o NoSQL) sino que se hace con sintaxis del
+lenguaje. Para este caso se planea usar mongoose, como ODM.
+
+Bases de datos: modelar los datos.
+
+  Bases de datos relacionales: Oracle, SQL Server, Postgresql, MysSQL, MariaDB, etc
+    schema db - table - registro (dupla)
+
+  Bases de datos no relacionales: mongodb, dynamodb, cassandra.
+    schema db - coleccion - documento
+
+    El formato en que se maneja la informacion es similar a un objeto json, es un binary json.
+    Y a diferencia de los objetos json de js, permite guardar archivos.
+    La relacion de la informacion se puede hacer similar a la SQL, sin embargo tambien permite embeber un documento dentro de un documento.
+
+CUANDO USAR SQL O NOSQL:
+  - Mucha información con muchas transacciones al dia. La relacion existente entre este tipo de informaicón se encuentra en muchos niveles.
+    //USAR BD RELACIONALES (SQL).
+  - Almacena cualquier tipo de dato. Se puede ir agregando nodos, para tener alta disponibilidad y sea flexible este tipo de esquemas.
+    Sobre todo para consultas. //USAR BD NO RELACIONALES.
+  - la informacion puede ser ingresada con cualquier dato, no como en relacionales que se exigen unos datos en epecifico y algunos son obligatorios.
+    Para poder garantizar que los datos cumplan unos requerimientos se hace uso del modelo, en este se definen esos requerimientos.
+
+
+COMO USAR MONGO:
+1- en linea de comandos: mongo, se conecta al cliente mongo. Existen otros clientes como atlas o vsc, que proveen interfaz visual.
+2- db se conecta a la base de datos.
+3- show db muestra las bases de datos que tiene el servidor para usar.
+4- para crear db se usa use nombre_db. Esta se crea cuando se crea una coleccion, si no aun no se crea.
+5- para crear una coleccion se usa db.createCollection('nombre de coleccion').
+6- para mostrar las colecciones existentes: show collections, muestrra las colecciones dentro de la db que se esta usando
+7- para borrar una db: db.dropDatabase();
+8- uso de camelCase.
+
+9- para crear registros: db.nombre_coleccion.insertOne({name: "Jesus", lastname: "Estrada"});
+10- para revisar que un registro si fue insertado se usa: db.users.find().pretty() //lista todos los objetos de la coleccion,
+    el pretty solo muestra el objeto de mejor manera;
+11- Para insertar multiples registros se usa: db.insert([{},{}])
+12- se pueden guardar arrays de objetos, objetos de objetos, objetos de arrays...
+
+13- si quiero buscar por criterio se usa db.users.find({clave: valor}).pretty();
+14- si quiero mostrar un dato de los registros que cumplan un criterio se usa db.users.find({clave:valor},{clave_dato: 1});
+15- para filtrar por algo mayor a un valor se usa db.users.find({age: {$gt: valor}}); gt: greater than, lt: lower than;
+
+
+
+
+
+
